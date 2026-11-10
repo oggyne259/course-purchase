@@ -1,0 +1,187 @@
+export const API_PATH = {
+  AUTH: {
+    LOGIN: "/user/login",
+    LOGOUT: "/user/logout",
+    REGISTER: "/user/register",
+    VERIFY_EMAIL: "/user/verify-email",
+    CHANGE_PASSWORD: "/user/change-password",
+    FORGOT_PASSWORD: "/auth/forgot-password",
+    CONFIRM_EMAIL: "/auth/confirmEmail",
+    REQUEST_PASSWORD_RESET: "/auth/requestPasswordReset",
+    RESET_PASSWORD: "/auth/resetPassword",
+  },
+  USER: {
+    GET_USERS: "/user",
+    GET_ALL_USERS_ADMIN: "/user/all",
+    GET_USER_PROFILE: "/user/get-me",
+    UPDATE_USER_PROFILE: "/user/update-me",
+    GET_USER_BY_ID: (id: string) => `/user/${id}`,
+    DELETE_USER: (id: string) => `/user/${id}`,
+    CREATE_USER: "/user/create",
+    BECOME_INSTRUCTOR: "/user/become-instructor",
+  },
+  PRODUCT: {
+    GET_ALL_PRODUCTS: "/products",
+    GET_PRODUCT_BY_ID: (id: string) => `/products/${id}`,
+    CREATE_PRODUCT: "/products/create",
+    UPDATE_PRODUCT: (id: string) => `/products/update/${id}`,
+    DELETE_PRODUCT: (id: string) => `/products/delete/${id}`,
+  },
+  BLOG: {
+    GET_ALL_BLOGS: "/api/blog",
+    CREATE_BLOG: "/api/blog/create",
+    DELETE_BLOG: (id: string) => `/api/blog/${id}`,
+    UPDATE_BLOG: (id: string) => `/api/blog/${id}`,
+    GET_BLOG_BY_ID: (id: string) => `/api/blog/${id}`,
+    GET_BLOG_BY_USER_ID: (userId: string) => `/api/blog/user/${userId}`,
+  },
+  APPOINTMENT: {
+    CREATE_APPOINTMENT: "/appointments/book",
+    SEARCH_APPOINTMENT: "/appointments/search",
+    CHANGE_STATUS: (appointmentId: string, newStatus: string) =>
+      `/appointments/status?appointmentId=${appointmentId}&newStatus=${newStatus}`,
+    ASSIGN_CONSULTANT: "/appointments/assign",
+    CANCEL_APPOINTMENT: (appointmentId: string) =>
+      `/appointments/cancel/${appointmentId}`,
+  },
+  SURVEY: {
+    GET_ALL_SURVEYS: "/survey/paged",
+    CREATE_SURVEY: "/survey",
+    SUBMIT_SURVEY: "/survey/submit",
+    UPDATE_SURVEY: (id: string) => `/survey/${id}`,
+    DELETE_SURVEY: (id: string) => `/survey/${id}`,
+    GET_SURVEY_BY_ID: (id: string) => `/survey/${id}`,
+    SURVEY_RESULT: (id: string) => `/survey/survey-result/${id}`,
+  },
+  QUESTION: {
+    GET_ALL_QUESTIONS: "/question/paged",
+    GET_QUESTION_BY_ID: (id: string) => `/question/${id}`,
+    GET_QUESTION_BY_SURVEY_ID: (surveyId: string) =>
+      `/question/by-survey/${surveyId}`,
+    CREATE_QUESTION: "/question",
+    UPDATE_QUESTION: (id: string) => `/question/${id}`,
+    DELETE_QUESTION: (id: string) => `/question/${id}`,
+  },
+  ANSWER: {
+    GET_ALL_ANSWERS: "/answer-options/paged",
+    GET_ANSWER_BY_QUESTION_ID: (questionId: string) =>
+      `/answer-options/by-question/${questionId}`,
+    CREATE_ANSWER: "/answer-options/create",
+    UPDATE_ANSWER: "/answer-options/update",
+    DELETE_ANSWER: (id: string) => `/answer-options/${id}`,
+  },
+  COURSE: {
+    GET_ALL_COURSES: "/api/course",
+    GET_RECOMMENDED_COURSES_ME: "/api/course/recommendations/me",
+    CREATE_COURSE: "/api/course/create",
+    UPDATE_COURSE: (id: string) => `/api/course/${id}`,
+    DELETE_COURSE: (id: string) => `/api/course/${id}`,
+    GET_COURSE_BY_ID: (id: string) => `/api/course/${id}`,
+    GET_MY_COURSES: "/api/course/myCourses",
+  },
+  INSTRUCTOR: {
+    GET_ALL_INSTRUCTORS: "/api/instructor",
+    GET_INSTRUCTOR_ORDER_HISTORY: "/api/instructor/order-history",
+    GET_INSTRUCTOR_COURSE_SALES_SUMMARY: "/api/instructor/course-sales-summary",
+    GET_INSTRUCTOR_DASHBOARD_SUMMARY: "/api/instructor/dashboard-summary",
+    CREATE_INSTRUCTOR_COURSE: "/api/course/create",
+    UPDATE_INSTRUCTOR_COURSE: (id: string) => `/api/course/${id}`,
+    DELETE_INSTRUCTOR_COURSE: (id: string) => `/api/course/${id}`,
+    GET_INSTRUCTOR_COURSE_DETAIL: (id: string) => `/api/course/${id}`,
+    GET_INSTRUCTOR_BY_ID: (id: string) => `/api/instructor/${id}`,
+    UPDATE_INSTRUCTOR: (id: string) => `/api/instructor/${id}`,
+    DELETE_INSTRUCTOR: (id: string) => `/api/instructor/${id}`,
+    GET_INSTRUCTOR_REQUESTS: "/api/instructor/request",
+    REVIEW_INSTRUCTOR_REQUEST: (requestId: string) =>
+      `/api/instructor/request/${requestId}/review`,
+  },
+  CONSULTANT: {
+    GET_ALL_CONSULTANTS: "/api/instructor",
+    CREATE_CONSULTANT: "/user/become-instructor",
+    UPDATE_CONSULTANT: (id: string) => `/api/instructor/${id}`,
+    DELETE_CONSULTANT: (id: string) => `/api/instructor/${id}`,
+    GET_CONSULTANT_BY_ID: (id: string) => `/api/instructor/${id}`,
+  },
+  CATEGORY: {
+    GET_ALL_CATEGORIES: "/api/category",
+    CREATE_CATEGORY: "/api/category/create",
+    UPDATE_CATEGORY: (categoryId: string) => `/category/${categoryId}`,
+    DELETE_CATEGORY: (categoryId: string) => `/category/${categoryId}`,
+    GET_CATEGORY_BY_ID: (categoryId: string) => `/category/${categoryId}`,
+  },
+  CART: {
+    GET_CART: "/api/cart/myCart",
+    ADD_CART_ITEM: "/api/cart/addCourse",
+    DELETE_CART_ITEM: (cartItemId: string) => `/api/cart/remove/${cartItemId}`,
+    CLEAR_CART: "/api/cart/clear",
+  },
+  SESSION: {
+    GET_ALL_SESSIONS: "/api/session/all",
+    GET_SESSION_BY_ID: (id: string) => `/api/session/${id}`,
+    CREATE_SESSION: "/api/session",
+    UPDATE_SESSION: (id: string) => `/api/session/${id}`,
+    DELETE_SESSION: (id: string) => `/api/session/${id}`,
+    GET_SESSION_BY_COURSE_ID: (courseId: string) =>
+      `/api/session/course/${courseId}`,
+  },
+  LESSON: {
+    GET_ALL_LESSONS: "/api/lesson/paged",
+    // Backend lesson detail API (used on lesson page)
+    GET_LESSON_BY_ID: (id: string) => `/api/lesson/${id}`,
+    CREATE_LESSON: "/api/lesson",
+    UPDATE_LESSON: (id: string) => `/api/lesson/${id}`,
+    DELETE_LESSON: (id: string) => `/api/lesson/${id}`,
+    GET_LESSON_BY_SESSION_ID: (sessionId: string) =>
+      `/api/lesson/session/${sessionId}`,
+  },
+  PROGRAM: {
+    GET_ALL_PROGRAMS: "/program",
+    CREATE_PROGRAM: "/program/create",
+    ENROLL_PROGRAM: "/program/enroll",
+    PROGRAM_ENROLLMENTS: "/program/history",
+    UPDATE_PROGRAM: (id: string) => `/program/${id}`,
+    DELETE_PROGRAM: (id: string) => `/program/${id}`,
+    GET_PROGRAM_BY_ID: (id: string) => `/program/${id}`,
+  },
+  ORDER: {
+    GET_ORDERS: "/api/order/all",
+    GET_ORDER_BY_USER_ID: "/api/order/myOrders",
+    CREATE_ORDER: "/api/order/createOrderFromCart",
+    GET_ORDER_BY_ID: (orderId: string) => `/api/order/${orderId}`,
+    CHANGE_ORDER_STATUS: (orderId: string, newStatus: string) =>
+      `/api/order/status/${orderId}/${newStatus}`,
+  },
+  PAYMENT: {
+    CREATE_PAYMENT: "/api/payment/createPaymentFromOrder",
+    GET_PAYMENT_HISTORY: (userId: string) => `/api/payment/history/${userId}`,
+    GET_ADMIN_FINANCIAL_OVERVIEW: "/api/payment/admin/financial-overview",
+    STRIPE_WEBHOOK: "/api/payment/stripe-webhook",
+    UPDATE_PAYMENT_STATUS: (paymentId: string) =>
+      `/api/payment/${paymentId}/status`,
+    GET_PAYMENT_BY_ID: (paymentId: string) => `/api/payment/${paymentId}`,
+  },
+  REVIEW: {
+    // Backend routes for review are under /api (same pattern as course)
+    GET_ALL_REVIEWS: "/api/review",
+    GET_REVIEW_BY_ID: (id: string) => `/api/review/${id}`,
+    CREATE_REVIEW: "/api/review/course",
+    UPDATE_REVIEW: (id: string) => `/api/review/${id}`,
+    DELETE_REVIEW: (id: string) => `/api/review/${id}`,
+    GET_REVIEW_BY_COURSE_ID: (courseId: string) =>
+      `/api/review/course/${courseId}`,
+    GET_REVIEW_BY_USER_ID: (userId: string) => `/api/review/user/${userId}`,
+    REVIEW_APPOINTMENT: "/api/review/appointment",
+    GET_REVIEW_BY_APPOINTMENT_ID: (appointmentId: string) =>
+      `/api/review/appointment/${appointmentId}`,
+    GET_REVIEW_BY_CONSULTANT_ID: (consultantId: string) =>
+      `/api/review/consultant/${consultantId}`,
+  },
+  DASHBOARD: {
+    GET_DASHBOARD_OVERALL: "/dashboard/overall",
+  },
+  VNPAY: {
+    CREATE_PAYMENT_URL: "/api/vnpay/create-payment-url",
+    RETURN: "/api/vnpay/return",
+    IPN: "/api/vnpay/ipn",
+  },
+};

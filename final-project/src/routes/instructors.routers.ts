@@ -1,0 +1,239 @@
+import express from 'express'
+import { wrapAsync } from '../utils/handlers'
+import {
+  getDashboardSummaryController,
+  deleteInstructorController,
+  getCourseSalesSummaryController,
+  getInstructorByIdController,
+  getInstructorsController,
+  getInstructorRequestsController,
+  getOrderHistoryController,
+  reviewInstructorRequestController,
+  updateInstructorController
+} from '../controllers/instructors.controllers'
+import {
+  dashboardSummaryRangeValidator,
+  instructorIdValidator,
+  instructorRequestIdValidator,
+  instructorRequestStatusValidator,
+  reviewInstructorRequestValidator,
+  updateInstructorValidator
+} from '../middlewares/instructors.middlewares'
+import { requireStaffOrAdmin, requireUser } from '../middlewares/users.middlewares'
+
+const instructorsRouter = express.Router()
+
+/**
+ * @openapi
+ * /api/instructor:
+ *   get:
+ *     summary: Lay danh sach instructors
+ *     tags: [Instructor]
+ *     responses:
+ *       200: { description: OK }
+ */
+instructorsRouter.get('/', wrapAsync(getInstructorsController))
+
+/**
+ * @openapi
+ * /api/instructor/order-history:
+ *   get:
+ *     summary: Lịch sử đơn hàng các khóa học đã bán (instructor đăng nhập)
+ *     tags: [Instructor]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: page
+ *         schema: { type: integer }
+ *       - in: query
+ *         name: limit
+ *         schema: { type: integer }
+ *       - in: query
+ *         name: courseId
+ *         schema: { type: string }
+ *       - in: query
+ *         name: fromDate
+ *         schema: { type: string, format: date }
+ *       - in: query
+ *         name: toDate
+ *         schema: { type: string, format: date }
+ *     responses:
+ *       200: { description: OK }
+ */
+instructorsRouter.get('/order-history', requireUser, wrapAsync(getOrderHistoryController))
+
+/**
+ * @openapi
+ * /api/instructor/course-sales-summary:
+ *   get:
+ *     summary: Tổng hợp doanh thu theo từng khóa học của instructor đăng nhập
+ *     tags: [Instructor]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200: { description: OK }
+ */
+instructorsRouter.get('/course-sales-summary', requireUser, wrapAsync(getCourseSalesSummaryController))
+
+/**
+ * @openapi
+ * /api/instructor/dashboard-summary:
+ *   get:
+ *     summary: Tong hop KPI dashboard cua instructor dang nhap
+ *     tags: [Instructor]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: range
+ *         required: false
+ *         schema:
+ *           type: string
+ *           enum: [7d, 30d, 90d, all]
+ *           default: 30d
+ *     responses:
+ *       200: { description: OK }
+ */
+instructorsRouter.get(
+  '/dashboard-summary',
+  requireUser,
+  dashboardSummaryRangeValidator,
+  wrapAsync(getDashboardSummaryController)
+)
+
+/**
+ * @openapi
+ * /api/instructor/request:
+ *   get:
+ *     summary: Staff lay danh sach yeu cau become instructor
+ *     tags: [Instructor]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: status
+ *         required: false
+ *         schema:
+ *           type: string
+ *           enum: [pending, approved, rejected]
+ *     responses:
+ *       200: { description: OK }
+ */
+instructorsRouter.get(
+  '/request',
+  requireStaffOrAdmin,
+  instructorRequestStatusValidator,
+  wrapAsync(getInstructorRequestsController)
+)
+
+/**
+ * @openapi
+ * /api/instructor/{instructorId}:
+ *   get:
+ *     summary: Lay instructor theo id
+ *     tags: [Instructor]
+ *     parameters:
+ *       - in: path
+ *         name: instructorId
+ *         required: true
+ *         schema: { type: string }
+ *     responses:
+ *       200: { description: OK }
+ */
+instructorsRouter.get('/:instructorId', instructorIdValidator, wrapAsync(getInstructorByIdController))
+
+/**
+ * @openapi
+ * /api/instructor/request/{requestId}/review:
+ *   patch:
+ *     summary: Staff duyet hoac tu choi yeu cau become instructor
+ *     tags: [Instructor]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: requestId
+ *         required: true
+ *         schema: { type: string }
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               decision:
+ *                 type: string
+ *                 enum: [approve, accept, reject, deny, denied]
+ *               review_note:
+ *                 type: string
+ *     responses:
+ *       200: { description: OK }
+ */
+instructorsRouter.patch(
+  '/request/:requestId/review',
+  requireStaffOrAdmin,
+  instructorRequestIdValidator,
+  reviewInstructorRequestValidator,
+  wrapAsync(reviewInstructorRequestController)
+)
+
+/**
+ * @openapi
+ * /api/instructor/{instructorId}:
+ *   put:
+ *     summary: Staff/Admin cap nhat thong tin instructor
+ *     tags: [Instructor]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: instructorId
+ *         required: true
+ *         schema: { type: string }
+ *     requestBody:
+ *       required: false
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               fullName: { type: string }
+ *               email: { type: string }
+ *               phoneNumber: { type: string }
+ *               qualifications: { type: array, items: { type: string } }
+ *               jobTitle: { type: string }
+ *               hireDate: { type: string, format: date-time }
+ *               salary: { type: number }
+ *               profilePicUrl: { type: string }
+ *     responses:
+ *       200: { description: OK }
+ */
+instructorsRouter.put(
+  '/:instructorId',
+  requireStaffOrAdmin,
+  instructorIdValidator,
+  updateInstructorValidator,
+  wrapAsync(updateInstructorController)
+)
+
+/**
+ * @openapi
+ * /api/instructor/{instructorId}:
+ *   delete:
+ *     summary: Staff/Admin go instructor va tra role ve user
+ *     tags: [Instructor]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: instructorId
+ *         required: true
+ *         schema: { type: string }
+ *     responses:
+ *       200: { description: OK }
+ */
+instructorsRouter.delete('/:instructorId', requireStaffOrAdmin, instructorIdValidator, wrapAsync(deleteInstructorController))
+
+export default instructorsRouter

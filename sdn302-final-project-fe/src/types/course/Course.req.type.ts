@@ -1,0 +1,55 @@
+import type { CourseStatus } from "../../app/enums/courseStatus.enum";
+import type { CourseTargetAudience } from "../../app/enums/courseTargetAudience.enum";
+import type { RiskLevel } from "../../app/enums/riskLevel.enum";
+
+export interface CourseRequest {
+  pageNumber: number;
+  pageSize: number;
+  filterByName?: string;
+  keyword?: string;
+  userId?: string;
+}
+
+export interface CourseRecommendationRequest {
+  limit?: number;
+  includeReasons?: boolean;
+}
+export interface CreateCourseRequest {
+  name: string;
+  slug: string;
+  user_id: string;
+  category_id: string;
+  content: string;
+  price: number;
+  discount: number;
+  imageUrl: string;
+  imageUrls: string[];
+}
+
+export interface UpdateCourseRequest {
+  id: string;
+  name: string;
+  categoryId: string;
+  content: string;
+  status: CourseStatus;
+  targetAudience: CourseTargetAudience;
+  videoUrls: string[];
+  imageUrls: string[];
+  price: number;
+  discount: number;
+  updatedAt: string;
+  slug: string;
+  userId: string;
+  riskLevel: RiskLevel;
+}
+export interface DeleteCourseRequest {
+  id: string;
+}
+
+export interface CourseDetailRequest {
+  id: string;
+  userId?: string; // Optional, for fetching user-specific data like purchase status
+}
+export interface MyCoursesRequest {
+  userId: string;
+}

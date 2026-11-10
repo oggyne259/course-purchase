@@ -1,0 +1,30 @@
+export interface BlogRequest {
+  pageNumber: number;
+  pageSize: number;
+  filterByContent?: string; // optional
+}
+export interface CreateBlogRequest {
+  content: string;
+  blogImgUrl: string;
+  title: string;
+  userId?: string;
+  user_id?: string;
+}
+
+export interface UpdateBlogRequest {
+  id: string;
+  content: string;
+  blogImgUrl: string;
+  title: string;
+}
+export interface DeleteBlogRequest {
+  id: string;
+}
+export interface GetBlogByIdRequest {
+  id: string;
+}
+
+export interface GetBlogByUserIdRequest {
+  userId?: string;
+  user_id?: string;
+}

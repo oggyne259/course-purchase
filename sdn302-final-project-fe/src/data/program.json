@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "name": "Tập Huấn Kỹ Năng Sống",
+    "description": "Trang bị kỹ năng sống tích cực cho thanh thiếu niên nhằm tăng khả năng tự bảo vệ trước nguy cơ sử dụng ma túy.",
+    "location": "TP. Hồ Chí Minh",
+    "type": "FULL_TIME",
+    "startDate": "2025-06-01T09:00:00",
+    "endDate": "2026-06-01T17:00:00",
+    "programImgUrl": "https://storage-vnportal.vnpt.vn/bpc-khdn/2915/2023/TuyenTruyen/T04/14.04.2023.4.3.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Phân Tích Tình Hình Ma Túy",
+    "description": "Phân tích dữ liệu cộng đồng để xây dựng chiến lược can thiệp sớm và hiệu quả trong phòng ngừa ma túy.",
+    "location": "Hà Nội",
+    "type": "PART_TIME",
+    "startDate": "2025-07-01T10:00:00",
+    "endDate": "2025-12-31T16:00:00",
+    "programImgUrl": "https://tuoitrebinhdinh.vn/wp-content/uploads/2020/11/ss.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Quản Lý Dự Án Cộng Đồng",
+    "description": "Điều phối các hoạt động phòng chống ma túy, kết nối các bên liên quan và đo lường hiệu quả chương trình.",
+    "location": "Đà Nẵng",
+    "type": "FULL_TIME",
+    "startDate": "2025-06-15T08:30:00",
+    "endDate": "2026-06-15T17:30:00",
+    "programImgUrl": "https://th.bing.com/th/id/R.d36bf62e5b121459240e463ee5fa9d14?rik=abUAxR%2ffJxrBKg&riu=http%3a%2f%2fthcsluongthevinh.bacquang.edu.vn%2fmedia%2f61%2fimages%2fz4793612400425_a4fdd9c9f277390163e82e4e49e20d3e.jpg&ehk=JhYYcrPBbml0mk8KOWNcA0vvJ0BC4AZdPKp1XVR3SkI%3d&risl=&pid=ImgRaw&r=0"
+  },
+  {
+    "id": 4,
+    "name": "Thiết Kế Truyền Thông Tích Cực",
+    "description": "Xây dựng các sản phẩm truyền thông sáng tạo nhằm nâng cao nhận thức và thay đổi hành vi về phòng chống ma túy.",
+    "location": "Cần Thơ",
+    "type": "CONTRACT",
+    "startDate": "2025-08-01T09:00:00",
+    "endDate": "2025-11-30T17:00:00",
+    "programImgUrl": "https://toplist.vn/images/800px/bai-van-thuyet-minh-ve-tac-hai-cua-ma-tuy-doi-voi-doi-song-con-nguoi-324832.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Vận Hành Hệ Thống Hỗ Trợ",
+    "description": "Quản lý nền tảng kỹ thuật giúp cung cấp thông tin, tư vấn và đặt lịch hỗ trợ cho người có nguy cơ cao.",
+    "location": "Hải Phòng",
+    "type": "FULL_TIME",
+    "startDate": "2025-06-10T09:00:00",
+    "endDate": "2026-06-10T17:00:00",
+    "programImgUrl": "https://www.baolongan.vn/image/news/2022/20221103/images/b8d189eb2beeedb0b4ff.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Chiến Dịch Nâng Cao Nhận Thức",
+    "description": "Lên kế hoạch và triển khai chiến dịch tuyên truyền nhằm lan tỏa thông điệp sống lành mạnh, không ma túy.",
+    "location": "Huế",
+    "type": "FULL_TIME",
+    "startDate": "2025-07-01T09:00:00",
+    "endDate": "2026-07-01T17:00:00",
+    "programImgUrl": "https://baoquangbinh.vn/dataimages/202309/original/images764507_a2dt.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Hỗ Trợ Người Dân",
+    "description": "Tiếp nhận và giải đáp thắc mắc về phòng chống ma túy, hỗ trợ kết nối với dịch vụ y tế và tâm lý.",
+    "location": "TP. Hồ Chí Minh",
+    "type": "PART_TIME",
+    "startDate": "2025-06-20T13:00:00",
+    "endDate": "2025-12-20T17:00:00",
+    "programImgUrl": "https://baogiaothong.mediacdn.vn/603483875699699712/2023/11/22/base64-17006150134712079089824.png"
+  },
+  {
+    "id": 8,
+    "name": "An Ninh Mạng & Trẻ Em",
+    "description": "Theo dõi và ngăn chặn các hành vi dụ dỗ trẻ vị thành niên vào sử dụng ma túy qua nền tảng số.",
+    "location": "Hà Nội",
+    "type": "FULL_TIME",
+    "startDate": "2025-07-15T08:00:00",
+    "endDate": "2026-07-15T17:00:00",
+    "programImgUrl": "https://th.bing.com/th/id/R.4a9d5e25cfa7bb57d3e23d8986efea0b?rik=Ym3ynItJAGNhOw&riu=http%3a%2f%2fimg.giaoduc.net.vn%2fUploaded%2f2018%2flcgkcwvo%2f2018_10_02%2fdsc_0723__copy47.jpg&ehk=PSxWsZ6e08CQHEjvHk%2fN%2bvDKObMBY484KYi99I8nDB8%3d&risl=&pid=ImgRaw&r=0"
+  },
+  {
+    "id": 9,
+    "name": "Biên Tập Nội Dung Giáo Dục",
+    "description": "Soạn thảo nội dung truyền thông và bài học phòng chống ma túy phù hợp với lứa tuổi học sinh, sinh viên.",
+    "location": "Đà Nẵng",
+    "type": "CONTRACT",
+    "startDate": "2025-08-05T10:00:00",
+    "endDate": "2025-12-05T16:00:00",
+    "programImgUrl": "https://image.nhandan.vn/w800/Uploaded/2023/kbfsvun/2022_10_14/tt-ttll-645.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Thực Tập Sinh Nghiên Cứu",
+    "description": "Hỗ trợ nghiên cứu về hành vi giới trẻ và các giải pháp phòng ngừa hiệu quả việc sử dụng chất gây nghiện.",
+    "location": "TP. Hồ Chí Minh",
+    "type": "INTERNSHIP",
+    "startDate": "2025-07-01T09:00:00",
+    "endDate": "2025-12-31T17:00:00",
+    "programImgUrl": "https://th.bing.com/th/id/R.98fbf30c23389df443e679d3923ff79f?rik=gXJWjsviDuftiw&riu=http%3a%2f%2fdaithainguyen.vn%2fUserFiles%2fVideo%2fNam2023%2fchua-hang-1jpg18_05_2023_09_03_03.jpg&ehk=LFTgZBR0pSGTx1TlwQ0qnwoThpv0TzsX6t6lJrS%2brIk%3d&risl=&pid=ImgRaw&r=0"
+  }
+]
